@@ -1,0 +1,12 @@
+.modal {
+  background-color: transparent !important;
+  color: white;
+  border: 2px solid white;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.modal-content {
+  background-color: transparent !important;
+  color: white;
+}

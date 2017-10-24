@@ -1,0 +1,230 @@
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #6e1111;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+
+
+.valign-wrapper {
+  height: 100% !important; }
+
+#custom-valign {
+  width: 100% !important; 
+}
+
+#custom-valign-text {
+  width: 100% !important;
+  padding: 20% !important; }
+
+#valign-content {
+  width: 100% !important; }
+
+@media only screen and (orientation: portrait) {
+  #my-nav{
+    /*height: "200px" !important;*/
+    /*background: yellow;*/
+  }
+  #middle-card {
+    width: 100% !important;
+    height: 90% !important; }
+
+    #middle-card-index {
+      width: 100% !important;
+      height: 90% !important; }
+}
+
+@media only screen and (orientation: landscape) and (max-device-width: 480px) {
+  #my-nav{
+    /*height: 50% !important;*/
+    /*background: pink;*/
+  }
+
+  #middle-card {
+    width: 100% !important;
+    height: 90% !important; }
+
+    #middle-card-index {
+      width: 100% !important;
+      height: 90% !important; }
+
+}
+
+.col.s12.m4 > .btn {
+  display: block;
+  /* width: 150px; */
+  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+* { box-sizing: border-box; }
+
+.video-background {
+  background: #000;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -99;
+}
+.video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+#vidtop-content {
+	top: 0;
+	color: #fff;
+}
+.vid-info { position: absolute; top: 0; right: 0; width: 33%; background: rgba(0,0,0,0.3); color: #fff; padding: 1rem; font-family: Avenir, Helvetica, sans-serif; }
+.vid-info h1 { font-size: 2rem; font-weight: 700; margin-top: 0; line-height: 1.2; }
+.vid-info a { display: block; color: #fff; text-decoration: none; background: rgba(0,0,0,0.5); transition: .6s background; border-bottom: none; margin: 1rem auto; text-align: center; }
+@media (min-aspect-ratio: 16/9) {
+  .video-foreground { height: 300%; top: -100%; }
+}
+@media (max-aspect-ratio: 16/9) {
+  .video-foreground { width: 300%; left: -100%; }
+}
+@media all and (max-width: 600px) {
+.vid-info { width: 50%; padding: .5rem; }
+.vid-info h1 { margin-bottom: .2rem; }
+}
+@media all and (max-width: 500px) {
+.vid-info .acronym { display: none; }
+}
+
+#middle-card-index {
+  width: 75%;
+  height: 90%;
+  background: #fff;
+  margin: 0 auto;
+/*  overflow-y: scroll !important;*/
+  background-image: url("earth2.gif") !important;
+  background-size: cover;
+}
+
+#middle-card-login-page {
+  background-image: url("earth2.gif") !important;
+  background-size: cover;
+  overflow: hidden;
+  height: 100vh;
+}
+
+
+
+#middle-card-play {
+  width: 75%;
+  background: #fff;
+  margin: 0 auto;
+  background-image: url("earth2.gif") !important;
+  /*  overflow-y: scroll !important;*/
+
+  background-size: cover;
+}
+
+#middle-card {
+  width: 75%;
+  height: 90%;
+  background: #fff;
+  margin: 0 auto;
+  overflow-y: scroll !important;
+  /*background-image: url("earth2.gif") !important;*/
+  background-size: cover;
+}
+
+#middle-row{
+  padding-bottom: 20px !important;
+}
+
+#sl-heading {
+  font-weight: 100;
+  color: white;
+  font-size: 10vw;
+}
+
+#campaign-container{
+  font-size: 150px;
+  font-weight: 100;
+  width: 100%;
+  height: 50%;
+  display: table;
+}
+#campaign-container > .btn-flat{
+  height: 100%;
+  width: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#my-signin-guest {
+  width: 240px !important;
+  font-weight: 500;
+}
+
+.truncated {
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.thin {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+
+/* CSS FOR ADS */
+
+#scarletAds {
+  position: absolute;
+  bottom: 0;
+  right: 30;
+  max-width: 256;
+  border: 1px solid white;
+  z-index: 1000;
+  background-color: rgba(255,255,255,0.75);
+}
+
+.adImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+.close{
+  position: absolute;
+  top: -8;
+  right: -8;
+  background-color:#fff;
+  transition:background-color .2s;
+  float: right;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.close:hover{
+  background-color:#ddd
+}
+
+.close .material-icons{
+  font-size:18px;
+  line-height:24px
+  border-radius: 50%;
+}
+
+

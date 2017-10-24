@@ -1,0 +1,10 @@
+// Init the tooltip on a specific action
+function initPushpin() {
+	$(document).ready(function(){
+    $('.target').pushpin({
+      top: 0,
+      bottom: 1000,
+      offset: 0
+    });
+  }); 
+}

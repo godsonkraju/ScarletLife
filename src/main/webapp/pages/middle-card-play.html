@@ -1,0 +1,45 @@
+<!-- Test Angular -->
+<!-- <h1>{{message}}</h1> -->
+
+<!--
+This canvasDev is where we render the simulation. Note that we
+also need to respond to mouse clicks on the canvasDev, which we'll
+do via the respondToMouseClick method.
+-->
+
+<!-- Start Middle Card -->
+<div id="middle-card-play" class="card hoverable black">
+    <canvas id="game_canvas" width="1024" height="512">
+    </canvas>
+    <!-- <div id="buttons" class="hide-on-large-only">
+    <div id="buttons">
+      <a class="btn orange" id="start" >START</a>
+      <a class="btn" id="up" >UP</a>
+      <a class="btn" id="left" >LEFT</a>
+      <a class="btn" id="right" >RIGHT</a>
+      <a class="btn" id="down" >DOWN</a>
+      <a class="btn red" id="shoot" >SHOOT</a>
+    </div>
+    -->
+
+    <!-- Overlay Modal -->
+    <div id="overlay-modal" class="modal modal-fixed-footer" ng-controller="overlayCtrl">
+      <div class="modal-content">
+        <div class = row>
+          <h4 class = "col s12">{{title}}</h4>
+          <!-- Mobile Controls Toggle -->
+          <!-- <h4 class = "col s9">{{title}}</h4>
+          <div class = "col s3 center-align">
+            <label">Mobile</label>
+            <div class="switch"><label>Off<input onclick="toggleMobileControls()" type="checkbox"><span class="lever"></span>On</label></div> 
+          </div> -->
+        </div>
+        <span id="description" class="flow-text">{{message}}</span>
+      </div>
+      <div class="modal-footer">
+      <!-- For now, this just restarts the level -->
+        <a id="yeahButton" class="modal-action modal-close waves-effect waves-teal btn-flat" ng-click="yeahButton()">{{yeahText}}</a>
+        <a class="modal-action modal-close waves-effect waves-teal btn-flat" ng-click="nahButton()">Back</a>
+      </div>
+    </div>
+</div>

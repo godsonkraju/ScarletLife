@@ -1,0 +1,28 @@
+{
+  "reviews": [
+    {
+        "id": "comment2",
+        "subject": "Love!!!!!",
+        "comment": "This is a wonderful game.  I LOVE SCARLET LIFE!!!",
+        "rating": 5,
+        "name": "Mathew M",
+        "location": "New York"
+    },
+    {
+      "id": "comment1",
+      "subject": "Wowowowww!",
+      "comment": "Scarlet Life is my favorite omg.",
+      "rating": 5,
+      "name": "Evan",
+      "location": "New York"
+    },
+    {
+        "id": "comment3",
+        "subject": "I LOVE Scarlet Life",
+        "comment": "This is a fantastic game. I love the music and interaction while playing. It makes me feel so alive. I love it so much that I can't stop playing...even my wife is getting addicted to it!! We play Scarlet Life levels during our dinner dates these days!!",
+        "rating": 5,
+        "name": "Secret Admirer (SS)",
+        "location": "Port Jeff"
+    }
+  ]
+}

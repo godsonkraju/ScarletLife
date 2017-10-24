@@ -1,0 +1,259 @@
+<!-- Large Contact Page -->
+<div id="contact" class="hide-on-med-and-down">
+
+  <!-- <div class="row"> -->
+
+    <!-- The Articls Card -->
+    <div id="middle-card" class="row card" ng-controller="contactController">
+
+      </br>
+
+      <div id="form">
+
+
+
+        <div id="form-data" class="card-content center-align valign">
+
+          <div >
+
+            <div class="card-content">
+              <div>
+
+              </br>
+                <div class="card-title">Your feedback is appreciated, please leave a comment or fill out a detailed review below.</div>
+                  <br>
+                <!-- Textfield -->
+                <div class="row">
+                  <form class="col s12">
+                    <div class="input-field col s12">
+                      <textarea placeholder="My name is..." id="name-textarea" class="materialize-textarea" length="120"></textarea>
+                      <label for="name-textarea">What is your name?</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <textarea placeholder="Just saying hello..." id="subject-textarea" class="materialize-textarea" length="120"></textarea>
+                      <label for="subject-textarea">What is the subject?</label>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <textarea placeholder="Scarlet Life is fantastic..." id="comment-textarea" class="materialize-textarea" length="300"></textarea>
+                        <label for="comment-textarea">What do you have to say?</label>
+                      </div>
+                      <a class="btn waves-effect" for="textarea1" ng-click="submitComment()">Submit</a>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Rating -->
+                <div class="row">
+                  <div class="col s12">
+                    <form name="rating-form" action="#" class="">
+                      <p class="center-align">
+                        <input name="group1" type="radio" id="test1" value="1"/>
+                        <label for="test1"><i class="material-icons" >star</i></label>
+
+                        <input name="group1" type="radio" id="test2" value="2"/>
+                        <label for="test2"><i class="material-icons">star</i><i class="material-icons">star</i></label>
+
+                        <input name="group1" type="radio" id="test3" value=3/>
+                        <label for="test3"><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></label>
+
+                        <input name="group1" type="radio" id="test4" value="4"/>
+                        <label for="test4"><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></label>
+
+                        <input name="group1" type="radio" id="test5" value="5"/>
+                        <label for="test5"><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></label>
+                      </p>
+                    </form>
+                    <label for="rating-form">Please rate me!</label>
+                  </div>
+                </div>
+
+                  <div>
+                      <a class="waves-effect waves-light btn modal-trigger" href="https://docs.google.com/a/stonybrook.edu/forms/d/e/1FAIpQLScgckUYRQCHmVOMcvzpXger6-TGlVfphwaz_YWkEuohivVsGA/viewform" target="_blank">
+                          Detailed Review Form</a>
+                  </div>
+                <div class="row">
+                  </br>
+                  <div class="divider"></div>
+                  </br>
+                  <span class="flow-text">
+                    Other people have said...
+                  </span>
+                  </br>
+                </div>
+
+                <!-- Reviews Go Here -->
+                <div class="row">
+                  <div class="col s12">
+                    <div id="{{r.id}}" class="card teal" ng-repeat="r in reviews">
+                      <!-- Card Content  -->
+                      <div class="card-content left-align">
+                        <p class="amber-text card-title">Subject: {{r.subject}}</p>
+                        <p class="white-text left-align">{{r.comment}}</p>
+                      </div>
+                      <!-- Card Activator -->
+                      <div class="card-action row left-align valign">
+                        <div class="row">
+                          <div class="col s6 left-align">
+                            <p class="white-text">{{r.name}}, {{r.location}}</p>
+                          </div>
+                          <div class="col s6 right-align">
+                            <p id="rating">
+                              <i class="material-icons amber-text">star</i><i class="material-icons amber-text">star</i><i class="material-icons amber-text">star</i><i class="material-icons amber-text">star</i><i class="material-icons amber-text">star</i>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  <!-- </div> -->
+
+</div>
+
+<!-- Small Contact Page -->
+<div id="contact" class="hide-on-large-only">
+
+  <div class="row">
+
+    <!-- The Articls Card -->
+    <div id="middle-card-small" class="row" ng-controller="contactController">
+
+      </br>
+
+      <div id="form" class="card">
+
+
+        <div id="form-data" class="card-content center-align valign">
+
+        </br>
+          <div class="card-title">Your feedback is appreciated, please leave a comment below.</div>
+        </br>
+
+          <!-- Textfield -->
+          <div class="row">
+            <form class="col s12">
+              <div class="input-field col s12">
+                <textarea placeholder="My name is..." id="name-textarea-small" class="materialize-textarea" length="120"></textarea>
+                <label for="name-textarea-small">What is your name?</label>
+              </div>
+              <div class="input-field col s12">
+                <textarea placeholder="Just saying hello..." id="subject-textarea-small" class="materialize-textarea" length="120"></textarea>
+                <label for="subject-textarea-small">What is the subject?</label>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea placeholder="Scarlet Life is fantastic..." id="comment-textarea-small" class="materialize-textarea" length="300"></textarea>
+                  <label for="comment-textarea-small">What do you have to say?</label>
+                </div>
+                <a class="btn waves-effect" for="textarea1" ng-click="submitComment()">Submit</a>
+              </div>
+            </form>
+          </div>
+
+          <!-- Rating -->
+          <div class="row">
+            <div class="col s12">
+              <form name="rating-form" action="#" class="">
+                <ul class="center-align">
+
+                  <li>
+                    <input name="group1" type="radio" id="test1-small" value="1"/>
+                    <label for="test1-small"><i class="material-icons" >star</i></label>
+                  </li>
+
+
+                  <li>
+                    <input name="group1" type="radio" id="test2-small" value="2"/>
+                    <label for="test2-small"><i class="material-icons">star</i><i class="material-icons">star</i></label>
+                  </li>
+
+                  <li>
+                    <input name="group1" type="radio" id="test3-small"  value="3"/>
+                    <label for="test3-small"><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></label>
+                  </li>
+
+                  <li>
+                    <input name="group1" type="radio" id="test4-small" value="4"/>
+                    <label for="test4-small"><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></label>
+                  </li>
+
+                  <li>
+                    <input name="group1" type="radio" id="test5-small" value="5"/>
+                    <label for="test5-small"><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></label>
+                  </li>
+
+                </ul>
+              </form>
+              <label for="rating-form">Please rate me!</label>
+            </div>
+          </div>
+
+
+          <div class="row">
+            </br>
+            <div class="divider"></div>
+            </br>
+            <span class="flow-text">
+              Other people have said...
+            </span>
+            </br>
+          </div>
+
+          <!-- Reviews Go Here -->
+          <div class="row">
+            <div id="{{r.id}}" class="card teal" ng-repeat="r in reviews">
+              <!-- Card Content  -->
+              <div class="card-content left-align">
+                <p class="amber-text card-title">Subject: {{r.subject}}</p>
+                <p class="white-text left-align">{{r.comment}}</p>
+              </div>
+              <!-- Card Activator -->
+              <div class="card-action row left-align valign">
+                <div class="row">
+                  <div class="col s6 left-align">
+                    <p class="white-text">{{r.name}}, {{r.location}}</p>
+                  </div>
+                  <div class="col s6 right-align">
+                    <p id="rating">
+                      <i class="material-icons amber-text">star</i><i class="material-icons amber-text">star</i><i class="material-icons amber-text">star</i><i class="material-icons amber-text">star</i><i class="material-icons amber-text">star</i>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

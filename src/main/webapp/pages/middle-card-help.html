@@ -1,0 +1,224 @@
+<!-- Test Angular -->
+<!-- <h1>{{message}}</h1> -->
+
+
+<!-- Large Contact Page -->
+<div id="contact" class="">
+
+  <!-- <div class="row"> -->
+
+  <!-- The Articls Card -->
+  <div id="middle-card" class="row card" ng-controller="contactController">
+
+    <div id="form">
+
+
+
+      <div id="form-data" class="card-content valign">
+
+        <div >
+
+          <div class="card-content">
+
+          <div class="card-title">Help: A SL Reference Guide</div>
+
+          <hr>
+            <div>
+
+            </br>
+            
+
+
+          <!-- Start Help Page Content -->
+          <div id="content" >
+
+            <!-- Help message content -->
+            <div class="white">
+
+            <p>Welcome to the help page! Hopefully the deatils included here will be able to clear up any confusion!</p>
+
+            <h3 class="flow-text">Navigation</h3>
+            <p>There are three main sections for navigation, the navigation bar, the home screen, and the community page.</p>
+            <br>
+            <h5 class="flow-text">Navigation Bar</h5>
+            <p>The navigation bar is the header at the top of the page, it contains three buttons. The "Home" button will bring you to the home screen, the "About" button will bring you to a page where you can read about the story behind scarlet life, and you can log in to your google account by clicking the dropdown menu that says "Welcome, (user)!" Clicking this dropdown also gives you the optoin to view this page.</p>
+            <br>
+            <h5 class="flow-text">Home Screen</h5>
+            <p>The home screen has two buttons. The "PLAY" button sends you to the level select screen, where you can select a campaign level to play. (See "Game Controls" for more information) The "GET CREATIVE!" button sends you to the creative community, where you can play levels that other people have published, and where you can create and publish your own levels as well!</p>
+            <br>
+            <h5 class="flow-text">Community Page</h5>
+            <p>The community page has four tabs for navigation. From left to right: The "Create" Tab sends you to a level builder where you can create and edit your own custom level. (See "Level Builder Controls" for more information). The "Explore" tab opens up a level browser to play other people's levels. The "Favorites" tab opens up a level browser </p>
+            <br>
+            <h3 class="flow-text">Cell Types</h3>
+            <table class="bordered striped">
+              <tr>
+                <td>Color</td>
+                <td>Name</td>
+                <td>Effect</td>
+              </tr>
+              <tr>
+                <td><img src="img/1x1_bad.png" alt="Scarlet" height = 30 width = 30/></td>
+                <td>Scarlet Life</td>
+                <td>Hurst the player when they touch it.</td>
+              </tr>
+              <tr>
+                <td><img src="img/1x1_finish.png" alt="Purple" height = 30 width = 30/></td>
+                <td>Finish</td>
+                <td>Touch a finish cell to beat a level!</td>
+              </tr>
+              <tr>
+                <td><img src="img/1x1_good.png" alt="Green" height = 30 width = 30/></td>
+                <td>Good Life</td>
+                <td>Does not hurt the player, interupts Scarlet Life.</td>
+              </tr>
+              <tr>
+                <td><img src="img/playerRight_Large.png" alt="Light Grey" height = 30 width = 30/></td>
+                <td>Player Ship</td>
+                <td>The player's ship, this moves with game controls.</td>
+              </tr>
+              <tr>
+                <td><img src="img/Key.png" alt="Pink Outline" height = 30 width = 30/></td>
+                <td>Keys</td>
+                <td>THe finish unlocks once the player picks up all of these.</td>
+              </tr>
+              <tr>
+                <td><img src="img/1x1_Void.png" alt="Dark Grey" height = 30 width = 30/></td>
+                <td>Void (Walls)</td>
+                <td>Neither the plater, nor Scarlet Life, nor Good Life, can pass through this barrier.</td>
+              </tr>
+              <tr>
+                <td><img src="img/Teleporter_Large.png" alt="Light Blue" height = 30 width = 30/></td>
+                <td>Teleporters</td>
+                <td>Touch a teleporter cell to get teleported to it's partner teleporter!</td>
+              </tr>
+              <tr>
+                <td><img src="img/1x1_Dead.png" alt="Black" height = 30 width = 30/></td>
+                <td>Blank (Dead)</td>
+                <td>There is nothing here, just the blank vastness of space.</td>
+              </tr>
+              <tr>
+                <td><img src="img/1x1_bullet.png" alt="White" height = 30 width = 30/></td>
+                <td>Bullets</td>
+                <td>Travel across the screen when shot, they blow up when they collide with either Good or Scarlet life.</td>
+              </tr>
+              <tr>
+                <td>Powerups:</td>
+                <td colspan="2">
+                  <table class="bordered">
+                    <tr>
+                      <td>Outline</td>
+                      <td>Name</td>
+                      <td>Effect</td>
+                    </tr>
+                    <tr>
+                      <td><img src="img/random.png" alt="Flashing" height = 30 width = 30/></td>
+                      <td>Random</td>
+                      <td>Gives the player a random effect from below.</td>
+                    </tr>
+                    <tr>
+                      <td><img src="img/Health.png" alt="Green" height = 30 width = 30/></td>
+                      <td>Health</td>
+                      <td>Restores the player's health.</td>
+                    </tr>
+                    <tr>
+                      <td><img src="img/Fuel.png" alt="Brown" height = 30 width = 30/></td>
+                      <td>Fuel</td>
+                      <td>Restores the player's fuel.</td>
+                    </tr>
+                    <tr>
+                      <td><img src="img/SlowTime.png" alt="Blue" height = 30 width = 30/></td>
+                      <td>Slow Time</td>
+                      <td>Slows down time to 5 seconds.</td>
+                    </tr>
+                    <tr>
+                      <td><img src="img/Bullet.png" alt="White" height = 30 width = 30/></td>
+                      <td>Bullets</td>
+                      <td>Restores the player's bullets.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <br>
+            <h3 class="flow-text">Game Controls</h3>
+            <table class="bordered striped">
+              <tr>
+                <td>Action</td>
+                <td>Effect</td>
+              </tr>
+              <tr>
+                <td>w, ↑</td>
+                <td>Move the ship up</td>
+              </tr>
+              <tr>
+                <td>a, ←</td>
+                <td>Move the ship left</td>
+              </tr>
+              <tr>
+                <td>s, ↓</td>
+                <td>Move the ship down</td>
+              </tr>
+              <tr>
+                <td>d, →</td>
+                <td>Move the ship right</td>
+              </tr>
+              <tr>
+                <td>b, space, touch</td>
+                <td>Shoot a bullet</td>
+              </tr>
+            </table>
+            <br>
+
+
+            <!-- TODO: Fill In -->
+             <h3 class="flow-text">Game Screen Diagram</h3>
+                <img src="images/Game-Diagram.png" alt="Game Diagram Not Loaded" width = 100% />
+
+                <h3 class="flow-text">Community Diagram</h3>
+                <img src="images/Community-Diagram.png" alt="Game Diagram Not Loaded" width = 100% />
+
+                <h3 class="flow-text">Level Builder Diagrams</h3>
+                <img src="images/build-diagram1.png" alt="Game Diagram Not Loaded" width = 100% />
+                <img src="images/build-diagram2.png" alt="Game Diagram Not Loaded" width = 100% />
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Contact us -->
+    <div class="card-action center-align">
+      <span class="">For any questions or concerns, please <a href="#/contact">contact us</a>.</span>
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+</div>
+
+</div>
+
+<!-- </div> -->
+
+</div>
+
+
+
+
+
+
+

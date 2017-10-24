@@ -1,0 +1,191 @@
+<!-- Define AngularJS app -->
+<html ng-app="scarlet-life">
+<head>
+
+  <!-- <title>Scarlet Life</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/> -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scarlet Life</title>
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Scarlet Life">
+  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Scarlet Life">
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#e13e3e">
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#e13e3e">
+
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!-- <link rel="canonical" href="http://www.the-scarlet-life.appspot.com/"> -->
+
+   <!-- Let's use some icons -->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+
+   <!-- My CSS -->
+   <link type="text/css" rel="stylesheet" href="materialize-src/sass/materialize.css">
+   <link type="text/css" rel="stylesheet" href="materialize-src/sass/style.css">
+   <link rel="stylesheet" type="text/css" href="./css/GameOfLife.css" />
+   <link rel="stylesheet" type="text/css" href="css/progressbars.css" />
+   <link rel="stylesheet" type="text/css" href="css/modal.css" />
+
+   <!-- Game of Life -->
+   <script src="js/LevelBuilder.js"></script>
+   <script src="./js/Game.js"></script>
+    <!--<script src="./js/MobileGame.js"></script>-->
+    <script src="./js/Hammer.js"></script>
+    <script src="./js/Music.js"></script>
+
+
+   <!-- Google Auth -->
+   <meta name="google-signin-scope" content="profile email">
+   <meta name="google-signin-client_id" content="340788742260-rmmp3r577re59ss9p83uhjb3mjesvlvs.apps.googleusercontent.com">
+   <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+   <!-- Initializer for MaterializeCSS -->
+   <script src="js/init.js"></script>
+
+   <!-- Angular & Angular Route-->
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+   <script src="node_modules/angular-route/angular-route.js"></script>
+
+   <!-- Controllers -->
+   <script src="js/controllers/route.js"></script>
+   <script src="js/controllers/mainController.js"></script>
+   <script src="js/controllers/exploreController.js"></script>
+   <script src="js/controllers/favoritesController.js"></script>
+   <script src="js/controllers/myLevelsController.js"></script>
+   <script src="js/controllers/levelSelectController.js"></script>
+   <script src="js/controllers/googleLoginController.js"></script>
+   <script src="js/controllers/levelFormsController.js"></script>
+   <script src="js/controllers/contactController.js"></script>
+   <script src="js/ads.js"></script>
+
+
+   <!-- Modal Stuff -->
+   <script src="./js/modal.js"></script>
+
+</head>
+
+<!-- BODY -->
+<body ng-controller="mainController">
+
+       <!-- Simplified Navigation -->
+<!--       <div>
+        <nav id="my-nav" role="navigation">
+          <div class="nav-wrapper container valign center-align" height="10px"><span id="logo-container" href="#" class="brand-logo flow-text ">Scarlet Life</span>
+        </nav>
+      </div> -->
+
+     <!--Music-->
+     <div>
+      <audio autoplay loop id="backgroundAudio">
+          <source src="./music/ScarletOne.mp3" type="audio/mp3">
+      </audio>
+     </div>
+
+      <!-- Game goes here -->
+      <div id="middle-row" class="row">
+        <div id="middle-page-col" class="col s12">
+
+            <!-- Volume Controls -->
+            <div id="volume-bar" class="row #e13e3e" style="width: calc(78%)">
+                <div class="col s12 right-align">
+                    <a class="btn-floating btn-small" id="volume-button" onclick="updateVolume()" ><i class="material-icons" id="volume-icon">volume_up</i></a>
+                </div>
+            </div>
+
+
+          <!-- Angular templating: this is where content will be injected -->
+          <!-- <div ng-view></div> -->
+
+          <!-- Start Middle Card -->
+          <div id="middle-card-index" class="card hoverable">
+
+
+            <!-- Middle Card Index -->
+            <div id="middle-card-wrapper" class="valign-wrapper ">
+              <div id="custom-valign" class="valign ">
+                <div class="row">
+
+                  <!-- Header! -->
+                  <div class="col s12 center-align">
+                    <h1 id="sl-heading">Scarlet Life</h1>
+                    <li class="divider black"></li>
+                  </div>
+
+
+                </div>
+
+                <div class="row">
+                  <div class="col s12 center-align" ng-controller="GoogleCtrl">
+                  <!-- <li ><a ng-click="signout()" href="#/">Sign Out</a> </li> -->
+                    <!-- <div class="g-signin2 green" data-longtitle="true"data-onsuccess="onSignIn"></div> -->
+                    <a class="btn-flat g-signin2" data-onsuccess="onSignIn" data-longtitle="true" data-width="300">Login With Google</a>
+
+
+
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+
+ 
+
+
+      <!-- Our sexy footer -->
+<!--       <footer class="page-footer hide-on-med-and-down">
+        <div class="footer-copyright">
+          <div class="container">
+            <div class="row">
+            <a class="grey-text text-lighten-4 col s12 m4 left-align" href="#/terms">
+              Terms &#38; Conditions
+            </a>
+            <a class="grey-text text-lighten-4 col s12 m4 center-align"  >
+              &#169; 2016 Scarlet Life &#38; Richard McKenna
+            </a>
+            <a class="grey-text text-lighten-4 col s12 m4 right-align"  >
+              <i href="#" class="mdi mdi-facebook-box waves-effect"></i>
+              <i href="#" class="mdi mdi-twitter-box waves-effect"></i>
+              <i href="#" class="mdi mdi-google-plus-box waves-effect"></i>
+            </a>
+            </div>
+          </div>
+      </footer> -->
+
+  <!-- jQuery.js -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <!-- Materialize.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+  <!-- Init all the jQuery for materializeCSS -->
+  <script src="js/init.js"></script>
+
+  </body>
+
+</html>

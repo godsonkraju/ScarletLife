@@ -1,0 +1,182 @@
+<div id="middle-card" class="card hoverable"> 
+  <nav>
+
+   <!-- Navbar -->
+   <div class="nav-wrapper" >
+    <ul id="tabs" class="col s12 center-align" >
+
+    <!-- Community Tabs -->
+
+      <li class="col s3">
+        <a ng-href="{{getUrl(0)}}"><i class="material-icons tooltipped" data-position="bottom" data-delay="300" data-tooltip="Create Levels">create</i></a>
+      </li>
+
+      <li class="col s3">
+        <a ng-href={{getUrl(1)}}><i class="material-icons tooltipped" data-position="bottom" data-delay="300" data-tooltip="Explore Levels">explore</i></a>
+      </li>
+
+      <li class="col s3 active">
+        <a ng-href="{{getUrl(2)}}"><i class="material-icons tooltipped" data-position="bottom" data-delay="300" data-tooltip="Favorite Levels">favorite</i></a>
+      </li>
+
+      <li class="col s3">
+        <a ng-href="{{getUrl(3)}}"><i class="material-icons tooltipped" data-position="bottom" data-delay="300" data-tooltip="My Levels">face</i></a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<!-- Content -->
+<div class="card-content">
+
+ <!-- Favorites Tab -->
+ <div id="test3" class="col s12" ng-controller="favoriteCtrl" data-ng-init="helpMe()">
+
+  <!-- Upper righthand side  -->
+  <div class="row">
+    <div class="col s12">
+
+      <div class="col s2">
+        <a class="btn-floating btn-small" onclick="favoriteReverseSort()"><i class="material-icons right">swap_vert</i></a>
+      </div>
+
+
+      <div id="search-field" class="col s4 right">
+        <!-- Top row -->
+        <nav>
+          <div class="nav-wrapper">
+           <form>
+            <div class="input-field red lighten-3">
+              <input id="search" ng-model="title" ng-click="search()" type="search"  required>
+              <label for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>
+
+    <div id="search-field" class="col s6 right">
+      <select id="dropbox2" onchange="favoriteSort()">
+       <option value="" disabled colorListSelection>Choose your sorting option</option>
+       <option value="title">Aa-Zz</option>
+       <option value="timeCreated">Date Added</option>
+     </select>
+   </div>
+ </div>
+</div>
+
+<li class="divider"></li>
+
+
+
+<!-- Cards are generated here. -->
+<div class="row">
+
+      <!-- Spinner when waiting for data -->
+    <div class="valign-wrapper" ng-show="loading">
+      <div id="custom-valign" class="valign">
+        <div class="row">
+          <div class="col s12 center-align">
+                <div id="swirl-spinner">
+                    <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+
+                    <div class="spinner-layer spinner-red">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+
+                    <div class="spinner-layer spinner-yellow">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+
+                    <div class="spinner-layer spinner-green">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Display Message When GET returns [] -->
+    <div class="empty-message" ng-show="!levels.length">
+        <div class="valign-wrapper">
+          <div id="custom-valign" class="valign">
+            <div class="row">
+              <div class="col s12 center-align">
+                <span class="flow-text">You don't have any favorites yet!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <!--  NOTE: Temporarily Commenting Out For Distinction -->
+  <div ng-repeat="level in levels" class="col s12 m6 l4 ">
+
+<!--               <div ng-repeat="a in addToFavs(level.levelId)"></div>
+-->
+<div id="{{level.levelId}}" class="card sticky-action">
+  <div id="my_pic" class="card-image waves-effect waves-block waves-light">
+    <img class="activator" ng-src="{{level.image}}">
+  </div>
+  <!-- Card Content -->
+    <div class="thin activator">
+
+      <!-- Title -->
+      <div class = "row thin" id="title-row-{{$index}}">
+          <div class="col s10 truncated activator">
+            <span class="card-title activator">{{level.title}}</span>
+          </div>
+          <div class="col s1 activator">
+            <span class="material-icons activator right-align">more_vert</span>
+          </div>
+      </div>
+    </div>
+    
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">{{level.title}}<i class="material-icons right">close</i></span>
+    <p>{{level.description}}</p>
+  </div>
+  <div class="card-action">
+    <a  class="btn-floating waves-effect" ng-click="getLevel(level.levelId, this.href, $event)"><i class="material-icons right">play_arrow</i></a>
+    <a href="" class="btn-floating waves-effect" ng-click="unfavoriteLevel(level.levelId)"><i class="material-icons right">favorite_border</i></a>
+  </div>
+</div>
+</div>
+</div>
+<!-- Cards are generated here. -->
+</div>
+</div>
+
+</div>

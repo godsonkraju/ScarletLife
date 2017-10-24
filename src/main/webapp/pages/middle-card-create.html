@@ -1,0 +1,353 @@
+<div id="middle-card" class="card hoverable" ng-controller="levelFormCtrl"> 
+  <nav>
+
+   <!-- Navbar -->
+   <div class="nav-wrapper" >
+    <ul id="tabs" class="col s12 center-align" >
+      
+      <!-- Community Tabs -->
+
+      <li class="col s3 active">
+        <a ng-href="{{getUrl(0)}}"><i class="material-icons tooltipped" data-position="bottom" data-delay="300" data-tooltip="Create Levels">create</i></a>
+      </li>
+
+      <li class="col s3">
+        <a ng-href={{getUrl(1)}} onclick="editFalse()"><i class="material-icons tooltipped" data-position="bottom" data-delay="300" data-tooltip="Explore Levels">explore</i></a>
+      </li>
+
+      <li class="col s3">
+        <a ng-href="{{getUrl(2)}}" onclick="editFalse()"><i class="material-icons tooltipped" data-position="bottom" data-delay="300" data-tooltip="Favorite Levels">favorite</i></a>
+      </li>
+
+      <li class="col s3">
+        <a ng-href="{{getUrl(3)}}" onclick="editFalse()"><i class="material-icons tooltipped" data-position="bottom" data-delay="300" data-tooltip="My Levels">face</i></a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<!-- Content -->
+<div id="card-content">
+<!--  <span class="flow-text">Hello Create.</span>
+ --> 
+ <div id="test1" class="col s12" >
+
+  <!-- Game of Life Builder  -->
+  <!-- Container of the whole shabang-->
+  <div id="game_body">
+
+    <!-- Toolbar -->
+    <div id="toolbar" class="row">
+
+
+              <div class="col s1">
+                <a class="btn-floating  waves-effect" id="undo_button" type="button" value="Undo"><i class="material-icons right">undo</i></a></li>
+              </div>
+            <div class="col s1">
+              <a class="btn-floating  waves-effect" id="redo_button" type="button" value="Redo"><i class="material-icons right">redo</i></a></li>
+            </div>
+<!--          <div class="col s1">
+                <a class="btn-floating  waves-effect" id="reset_button" type="button" value="Reset"><i class="material-icons right">autorenew</i></a></li>
+              </div> -->
+
+              <!-- Game of Life Colors -->
+              <div class="col s3">
+                <select id="game_of_life_colors">
+                  <option data-icon="img/1x1_bad.png" class="square" value="Bad">Bad</option>
+                  <option data-icon="img/1x1_finish.png" class="square" value ="Finish">Finish</option>
+                  <option data-icon="img/1x1_good.png" class="square" value ="Good">Good</option>
+                  <option data-icon="img/playerRight_Large.png" class="square" value ="Spaceship">Spaceship</option>
+                  <option data-icon="img/Key.png" value ="Key">Key</option>
+                  <option data-icon="img/1x1_void.png" class="square" value ="Void">Void</option>
+                  <option data-icon="img/1x1_dead.png" class="square" value ="Dead">Dead</option>
+                  <option data-icon="img/1x1_random.png" value ="Random">Random</option>
+                  <option data-icon="img/Health.png" value ="Health">Health</option>
+                  <option data-icon="img/Fuel.png" value ="Fuel">Fuel</option>
+                  <option data-icon="img/SlowTime.png" value ="SlowTime">Slow Time</option>
+                  <option data-icon="img/Bullet.png" value ="Bullets">Bullets</option>
+                  <option data-icon="img/Teleporter_Large.png" value="Teleporter">Teleporter</option>
+                  <!--<option data-icon="img/Token.png" value ="Token">Token</option>-->
+                </select>
+              </div>
+
+
+              <!-- Game of Life Patterns -->
+
+              <div class="col s3" id="bad_colors">
+                <select id="game_of_life_patterns_bad">
+                  <option data-icon="img/Bomb.png" class="square" value="Bomb.png">Bomb</option>
+                  <option data-icon="img/Exploder_Large.png" class="square" value="Exploder.png">Exploder</option>
+                  <option data-icon="img/Fuse.png" class="square" value="Fuse.png">Fuse</option>
+                  <option data-icon="img/GliderDR_Large.png"  class="square" value="GliderDownRight.png">Glider DR</option>
+                  <option data-icon="img/GliderDL_Large.png" value="GliderDownLeft.png">Glider DL</option>
+                  <option data-icon="img/GliderUR_Large.png" value="GliderUpRight.png">Glider UR</option>
+                  <option data-icon="img/GliderUL_Large.png" value="GliderUpLeft.png">Glider UL</option>
+                  <option data-icon="img/GosperGliderGun1_Large.png" class="square" value="GosperGliderGun1.png">Gosper Glider Gun DR</option>
+                  <option data-icon="img/GosperGliderGun2_Large.png" class="square" value="GosperGliderGun2.png">Gosper Glider Gun UL</option>
+                  <option data-icon="img/GosperGliderGun3_Large.png" class="square" value="GosperGliderGun3.png">Gosper Glider Gun DL</option>
+                  <option data-icon="img/GosperGliderGun4_Large.png" class="square" value="GosperGliderGun4.png">Gosper Glider Gun UR</option>
+                  <option data-icon="img/LightweightSpaceshipRight_Large.png" class="square" value="LightweightSpaceshipRight.png">LW Spaceship R</option>
+                  <option data-icon="img/LightweightSpaceshipLeft_Large.png"value="LightweightSpaceshipLeft.png">LW Spaceship L</option>
+                  <option data-icon="img/LightweightSpaceshipUp_Large.png"value="LightweightSpaceshipUp.png">LW Spaceship U</option>
+                  <option data-icon="img/LightweightSpaceshipDown_Large.png" value="LightweightSpaceshipDown.png">LW Spaceship D</option>
+                  <option data-icon="img/MassiveBomb.png" class="square" value="MassiveBomb.png">Massive Bomb</option>
+                  <option data-icon="img/MassiveQuadBomb.png" class="square" value="MassiveQuadBomb.png">Massive Quad Bomb</option>
+                  <option data-icon="img/Seawolf1.png" class="square" value="Seawolf1.png">Seawolf #1</option>
+                  <option data-icon="img/Seawolf2.png" class="square" value="Seawolf2.png">Seawolf #2</option>
+                  <option data-icon="img/Seawolf3.png" class="square" value="Seawolf3.png">Seawolf #3</option>
+                  <option data-icon="img/SmallExploder_Large.png" class="square" value="SmallExploder.png">Small Exploder</option>
+                  <option data-icon="img/TenCellRow_Large.png" class="square" value="TenCellRow.png">Ten Cell Row</option>
+                  <option data-icon="img/Tumbler_Large.png" class="square" value="Tumbler.png">Tumbler</option>
+                  <option data-icon="img/1x1.png" class="square" value="1x1.png">1 x 1</option>
+                  <option data-icon="img/2x2.png" value="2x2.png">2 x 2</option>
+                </select>
+              </div>
+
+              <div class="col s3" id="finish_colors" hidden>
+                <select id="game_of_life_patterns_finish">
+                  <option data-icon="img/1x1.png" class="square" value="1x1.png">1 x 1</option>
+                  <option data-icon="img/2x2.png" value="2x2.png">2 x 2</option>
+                </select>
+              </div>
+
+              <div class="col s3" id="good_colors" hidden>
+                <select id="game_of_life_patterns_good">
+                  <option data-icon="img/Bomb.png" class="square" value="Bomb.png">Bomb</option>
+                  <option data-icon="img/Exploder_Large.png" class="square" value="Exploder.png">Exploder</option>
+                  <option data-icon="img/Fuse.png" class="square" value="Fuse.png">Fuse</option>
+                  <option data-icon="img/GliderDR_Large.png"  class="square" value="GliderDownRight.png">Glider DR</option>
+                  <option data-icon="img/GliderDL_Large.png" value="GliderDownLeft.png">Glider DL</option>
+                  <option data-icon="img/GliderUR_Large.png" value="GliderUpRight.png">Glider UR</option>
+                  <option data-icon="img/GliderUL_Large.png" value="GliderUpLeft.png">Glider UL</option>
+                  <option data-icon="img/GosperGliderGun1_Large.png" class="square" value="GosperGliderGun1.png">Gosper Glider Gun DR</option>
+                  <option data-icon="img/GosperGliderGun2_Large.png" class="square" value="GosperGliderGun2.png">Gosper Glider Gun UL</option>
+                  <option data-icon="img/GosperGliderGun3_Large.png" class="square" value="GosperGliderGun3.png">Gosper Glider Gun DL</option>
+                  <option data-icon="img/GosperGliderGun4_Large.png" class="square" value="GosperGliderGun4.png">Gosper Glider Gun UR</option>
+                  <option data-icon="img/LightweightSpaceshipRight_Large.png" class="square" value="LightweightSpaceshipRight.png">LW Spaceship R</option>
+                  <option data-icon="img/LightweightSpaceshipLeft_Large.png"value="LightweightSpaceshipLeft.png">LW Spaceship L</option>
+                  <option data-icon="img/LightweightSpaceshipUp_Large.png"value="LightweightSpaceshipUp.png">LW Spaceship U</option>
+                  <option data-icon="img/LightweightSpaceshipDown_Large.png" value="LightweightSpaceshipDown.png">LW Spaceship D</option>
+                  <option data-icon="img/MassiveBomb.png" class="square" value="MassiveBomb.png">Massive Bomb</option>
+                  <option data-icon="img/MassiveQuadBomb.png" class="square" value="MassiveQuadBomb.png">Massive Quad Bomb</option>
+                  <option data-icon="img/SmallExploder_Large.png" class="square" value="SmallExploder.png">Small Exploder</option>
+                  <option data-icon="img/TenCellRow_Large.png" class="square" value="TenCellRow.png">Ten Cell Row</option>
+                  <option data-icon="img/Tumbler_Large.png" class="square" value="Tumbler.png">Tumbler</option>
+                  <option data-icon="img/1x1.png" class="square" value="1x1.png">1 x 1</option>
+                  <option data-icon="img/2x2.png" value="2x2.png">2 x 2</option>
+                </select>
+              </div>
+
+              <div class="col s3" id="spaceship_colors" hidden>
+                <select id="game_of_life_patterns_spaceships">
+                  <option data-icon="img/playerUp_Large.png" class="square" value="playerUp.png">Player Up</option>
+                  <option data-icon="img/playerDown_Large.png" class="square" value="playerDown.png">Player Down</option>
+                  <option data-icon="img/playerLeft_Large.png" class="square" value="playerLeft.png">Player Left</option>
+                  <option data-icon="img/playerRight_Large.png" class="square" value="playerRight.png">Player Right</option>
+                </select>
+              </div>
+
+
+              <div class="col s3" id="key_colors" hidden>
+                <select id="game_of_life_patterns_key">
+                  <option data-icon="img/1x1.png" class="square" value="1x1.png">1 x 1</option>
+                  <option data-icon="img/2x2.png" value="2x2.png">2 x 2</option>
+                </select>
+              </div>
+
+              <div class="col s3" id="void_colors" hidden>
+                <select id="game_of_life_patterns_void">
+                  <option data-icon="img/1x1.png" class="square" value="1x1.png">1 x 1</option>
+                  <option data-icon="img/2x2.png" value="2x2.png">2 x 2</option>
+                </select>
+              </div>
+
+              <div class="col s3" id="dead_colors" hidden>
+                <select id="game_of_life_patterns_dead">
+                  <option data-icon="img/1x1.png" class="square" value="1x1.png">1 x 1</option>
+                  <option data-icon="img/2x2.png" value="2x2.png">2 x 2</option>
+                </select>
+              </div>
+
+
+              <div class="col s3" id="random_power_up_colors" hidden>
+                <select id="game_of_life_patterns_random">
+                  <option data-icon="img/1x1.png" class="square" value="1x1.png">1 x 1</option>
+                  <option data-icon="img/2x2.png" value="2x2.png">2 x 2</option>
+                </select>
+              </div>
+
+              <div class="col s3" id="health_power_up_colors" hidden>
+                <select id="game_of_life_patterns_health">
+                  <option data-icon="img/1x1.png" class="square" value="1x1.png">1 x 1</option>
+                  <option data-icon="img/2x2.png" value="2x2.png">2 x 2</option>
+                </select>
+              </div>
+
+              <div class="col s3" id="fuel_power_up_colors" hidden>
+                <select id="game_of_life_patterns_fuel">
+                  <option data-icon="img/1x1.png" class="square" value="1x1.png">1 x 1</option>
+                  <option data-icon="img/2x2.png" value="2x2.png">2 x 2</option>
+                </select>
+              </div>
+
+              <div class="col s3" id="slow_time_power_up_colors" hidden>
+                <select id="game_of_life_patterns_slow_time">
+                  <option data-icon="img/1x1.png" class="square" value="1x1.png">1 x 1</option>
+                  <option data-icon="img/2x2.png" value="2x2.png">2 x 2</option>
+                </select>
+              </div>
+
+              <div class="col s3" id="bullets_power_up_colors" hidden>
+                <select id="game_of_life_patterns_bullets">
+                  <option data-icon="img/1x1.png" class="square" value="1x1.png">1 x 1</option>
+                  <option data-icon="img/2x2.png" value="2x2.png">2 x 2</option>
+                </select>
+              </div>
+
+              <div class="col s3" id="teleporter_colors" hidden>
+                <select id="game_of_life_patterns_teleporter">
+                  <option data-icon="img/Teleporter_Large.png" value="Teleporter.png">Teleporter</option>
+                </select>
+              </div>
+
+              <div class="col s3" id="tokens_colors" hidden>
+                <select id="game_of_life_patterns_tokens">
+                  <option data-icon="img/1x1.png" class="square" value="1x1.png">1 x 1</option>
+                  <option data-icon="img/2x2.png" value="2x2.png">2 x 2</option>
+                </select>
+              </div>
+
+
+
+              <div class="col s1">
+                <a class="btn-floating  waves-effect" id="dec_fps_button" value="FPS-"><i class="material-icons right">fast_rewind</i></a>
+              </div>
+
+              <div class="col s1">
+                <a class="btn-floating  waves-effect" id="inc_fps_button" value="FPS+"><i class="material-icons right">fast_forward</i></a>
+              </div>
+
+              <div class="col s1">
+                <a class="btn-floating  waves-effect" id="dec_cell_length_button" value="CL-"><i class="material-icons right">zoom_out</i></a>
+              </div>
+
+              <div class="col s1">
+                <a class="btn-floating  waves-effect" id="inc_cell_length_button" value="CL+"><i class="material-icons right">zoom_in</i></a>
+              </div>
+
+            </div>
+            <!-- Container of the Canvas  -->
+            <div id="canvas" class="col s12 m12 l12">
+
+              <!-- Game Container -->
+              <div id="game_of_life_canvas_container" class="row">
+                <div class="col s12">
+                  <!-- Canvas  -->
+                  <canvas id="build_canvas" height="512" width="1024">
+                  </canvas>
+
+
+                  <div class="row" id="create-form">
+                    <!-- <form class="col s12" onsubmit="postLevel()"> -->
+                    <form class="col s12">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input placeholder="Your title goes here.'" id="level_title" type="text" class="validate">
+                          <label for="level_title">Level Title</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input placeholder="Your description goes here." id="level_description" type="text" class="validate">
+                          <label for="level_description">Level Description</label>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <p class="range-field">
+                            <input type="range" id="health" min="0" max="500" />
+                          </p> <br>
+                          <label for="health">Initial Health</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <p class="range-field">
+                            <input type="range" id="fuel" min="0" max="500" />
+                          </p> <br>
+                          <label for="fuel">Initial Fuel</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <p class="range-field">
+                            <input type="range" id="bulletsLimit" min="0" max="500" />
+                          </p> <br>
+                          <label for="fuel">Number of Initial Bullets</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <label for="private_radio_buttons">Private or Public Level?</label> <br>
+                          <p id="private_radio_buttons">
+                            <input name="private" type="radio" id="private" value=true />
+                            <label for="private">Private</label>
+                            <input name="private" type="radio" id="public" value=false />
+                            <label for="public">Public</label>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <label for="difficulty">Difficulty</label> <br>
+                          <p id="difficulty">
+                            <input name="difficulty_radio_buttons" type="radio" id="one_difficulty_button" value=1 />
+                            <label for="one_difficulty_button">1 Star</label>
+                            <input name="difficulty_radio_buttons" type="radio" id="two_difficulty_button" value=2 />
+                            <label for="two_difficulty_button">2 Star</label>
+                            <input name="difficulty_radio_buttons" type="radio" id="three_difficulty_button" value=3 />
+                            <label for="three_difficulty_button">3 Star</label>
+                            <input name="difficulty_radio_buttons" type="radio" id="four_difficulty_button" value=4 />
+                            <label for="four_difficulty_button">4 Star</label>
+                            <input name="difficulty_radio_buttons" type="radio" id="five_difficulty_button" value=5 />
+                            <label for="five_difficulty_button">5 Star</label>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <select id="levels">
+                            <option>None</option>
+                            <option ng-repeat="nextLevel in nextLevels" value={{nextLevel.levelId}}>{{nextLevel.title}}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!--<div class="row">-->
+                        <!--<div class="input-field col s12">-->
+                          <!--<label for="difficulty">Level Type: </label> <br>-->
+                          <!--<p id="level_type">-->
+                            <!--<input name="level_type" type="radio" id="campaign_level" value="campaign" />-->
+                            <!--<label for="campaign_level">Campaign</label>-->
+                            <!--<input name="level_type" type="radio" id="custom_level" value="custom" />-->
+                            <!--<label for="custom_level">Custom</label>-->
+                          <!--</p>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <div class="row">
+                        <!-- This button submits the level. -->
+                        <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="postLevel()">Submit
+                          <i class="material-icons right">send</i>
+                      </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>

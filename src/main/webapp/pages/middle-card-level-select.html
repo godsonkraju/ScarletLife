@@ -1,0 +1,124 @@
+<!-- Test Angular -->
+<!-- <h1>{{message}}</h1> -->
+
+<!-- Start Middle Card -->
+<div id="middle-card" class="card hoverable" >
+
+  <!-- Help message content -->
+    <div class="card-content white">
+      <span class="card-title">Level Select</span>
+      <li class="divider"></li>
+
+      <!-- Card -->
+      <div class="row" ng-controller="levelSelectController">
+
+          <!-- Spinner when waiting for data -->
+    <div class="valign-wrapper" ng-show="loading">
+      <div id="custom-valign" class="valign">
+        <div class="row">
+          <div class="col s12 center-align">
+                <div id="swirl-spinner">
+                    <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+
+                    <div class="spinner-layer spinner-red">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+
+                    <div class="spinner-layer spinner-yellow">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+
+                    <div class="spinner-layer spinner-green">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+        <!-- Display Message When GET returns [] -->
+    <div class="empty-message" ng-show="!levels.length">
+        <div class="valign-wrapper">
+          <div id="custom-valign" class="valign">
+            <div class="row">
+              <div class="col s12 center-align">
+                <span class="flow-text">Oops, something went wrong! Try again later.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+        <div id="level-{{$index}}" class="col s12 m6 l4" ng-repeat="l in levels">
+          <div id="campaign-container" class="small card center-align">
+
+            <!-- CASE 0: Level 0 -->
+            <a class="btn-flat waves-effect waves-teal" ng-if="$index === 0" ng-click="playLevel(l.levelId, this.href, $event)">
+              <div>{{$index+1}}</div>
+            </a>
+
+            <!-- CASE 1: Beaten Level -->
+            <a class="btn-flat waves-effect waves-teal" ng-if="$index !== 0 && check(l.levelId)" ng-click="playLevel(l.levelId, this.href, $event)">
+              <div>{{$index+1}}</div>
+            </a>
+
+
+            <!-- CASE 2: Locked Level -->
+            <a class="btn-flat waves-effect waves-red" ng-disabled="disabled" ng-if="$index !== 0 && !check(l.levelId)">
+              <i style="font-size: 100px !important;" class="material-icons md-48">lock</i> 
+            </a>
+
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Do I Need this? -->
+    <div class="card-action right-align">
+
+      <!-- Pagination -->
+<!--       <ul class="pagination">
+      <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+      <li class="active"><a href="#!">1</a></li>
+      <li class="waves-effect"><a href="">2</a></li>
+      <li class="waves-effect"><a href="">3</a></li>
+      <li class="waves-effect"><a href="">4</a></li>
+      <li class="waves-effect"><a href="">5</a></li>
+      <li class="waves-effect"><a href=""><i class="material-icons">chevron_right</i></a></li>
+      </ul> -->
+
+    </div>
+
+</div>

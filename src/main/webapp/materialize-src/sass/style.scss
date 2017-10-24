@@ -1,0 +1,115 @@
+$primary-color:#b71c1c; //red darken-4
+$primary-color-light: lighten($primary-color, 15%) !default;
+$white: #fff;
+
+// html, body {
+//   margin: 0 !important;
+//   height: 100% !important;
+//   overflow: hidden !important;
+// }
+
+body {
+  background:$primary-color-light;
+}
+
+// Mobile  in portrait mode
+@media only screen and (orientation: portrait) {
+  #middle-card{
+    width: 100% !important;
+    height: 90% !important;
+  }
+}
+
+// Mobile in landscape mode
+@media only screen and (orientation: landscape) {
+  #middle-card{
+    width: 100% !important;
+    height: 75% !important;
+  }
+}
+
+#card-info {
+  overflow-y: scroll !important;
+}
+
+#card-pic {
+  max-height: 100% !important;
+}
+
+#play-button {
+  padding:20px !important;
+}
+
+#volume-bar {
+  height: auto;
+}
+
+#middle-card {
+  width: 75%;
+  height:75%;
+  background:$white;
+  margin: 0 auto;
+}
+
+.valign-wrapper{
+  height: 100% !important;
+}
+
+#custom-valign {
+  width: 100% !important;
+}
+
+#custom-valign-text{
+  width: 100% !important;
+  padding: 20% !important;
+}
+
+#valign-content{
+  width: 100% !important;
+}
+
+#custom-tabs {
+  color: $white;
+}
+
+.col.s6 > .btn {
+  width: 150px;
+}
+
+// This actually rotates the whole thing sideways
+// #container {
+//   display:block;
+// }
+// @media only screen and (orientation:portrait){
+//   #container {
+//     height: 100vw;
+//     -webkit-transform: rotate(90deg);
+//     -moz-transform: rotate(90deg);
+//     -o-transform: rotate(90deg);
+//     -ms-transform: rotate(90deg);
+//     transform: rotate(90deg);
+//   }
+//
+// }
+//
+// @media only screen and (orientation:landscape){
+//   #container {
+//      -webkit-transform: rotate(0deg);
+//      -moz-transform: rotate(0deg);
+//      -o-transform: rotate(0deg);
+//      -ms-transform: rotate(0deg);
+//      transform: rotate(0deg);
+//   }
+// }
+
+//Sticky Footer
+// body {
+//   display: flex;
+//   min-height: 100vh;
+//   flex-direction: column;
+// }
+
+//
+// main {
+//   flex: 1 0 auto;
+// }
